@@ -2,13 +2,31 @@ import Heading from "./components/Heading/Heading.tsx";
 import SearchBar from "./components/SearchBar/SearchBar.tsx";
 import DataList from "./components/DataList/DataList.tsx";
 import Footer from "./components/Footer/Footer.tsx";
+import { test } from "./assets/test.tsx";
+import { useState, useCallback } from "react";
 
 function App() {
+  const [loadedData, setLoadedData] = useState<{ dtc: string }[]>([]);
+  const [isDataLoaded, setIsDataLoaded] = useState<boolean>(false);
+
+  const filterData = useCallback((text: string): void => {
+    const filteredData = test.filter((dataItem) => dataItem.dtc.includes(text));
+    const isDataFound = filteredData.length > 0;
+    console.log(filteredData);
+    if (isDataFound) {
+      setLoadedData(filteredData);
+    }
+
+    setIsDataLoaded(isDataFound);
+  }, []);
+
+  console.log(loadedData);
+
   return (
     <>
       <Heading />
-      <SearchBar />
-      <DataList />
+      <SearchBar onPress={filterData} initialText="" />
+      {isDataLoaded && <DataList data={loadedData} />}
       <Footer />
     </>
   );

@@ -1,21 +1,7 @@
 import DataRow from "./DataRow.tsx";
+import { type dataFormat } from "../../assets/test.tsx";
 
-const EXAMPLE_DATA = [
-  {
-    dtc: "P1000",
-    description: "Some text",
-  },
-  {
-    dtc: "P2000",
-    description: "Additional text",
-  },
-  {
-    dtc: "P3000",
-    description: "Example",
-  },
-];
-
-const DataList = () => {
+const DataList = ({ data }: { data: dataFormat[] }) => {
   return (
     <table className="w-full border-none border-collapse">
       <thead>
@@ -25,7 +11,7 @@ const DataList = () => {
         </tr>
       </thead>
       <tbody>
-        {EXAMPLE_DATA.map((dat) => (
+        {data.map((dat: dataFormat) => (
           <DataRow
             key={dat.dtc}
             dtc={dat.dtc}

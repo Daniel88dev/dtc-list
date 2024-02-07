@@ -1,13 +1,21 @@
 import { ChangeEvent, useState } from "react";
 
-const SearchBar = () => {
-  const [text, setText] = useState<string>("");
+const SearchBar = ({
+  onPress,
+  initialText = "",
+}: {
+  onPress: (text: string) => void;
+  initialText?: string;
+}) => {
+  const [searchText, setSearchText] = useState<string>(initialText);
 
-  const ChangeText = (event: ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
+  const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
   };
 
-  console.log(text);
+  const handlePress = () => {
+    onPress(searchText);
+  };
 
   return (
     <div className="flex items-center mt-4">
@@ -16,8 +24,9 @@ const SearchBar = () => {
         type="text"
         className="w-48 h-10 border-blue-700 border-2 rounded-lg text-center text-black"
         placeholder="Input DTC code"
-        onChange={ChangeText}
+        onChange={handleTextChange}
       />
+      <button onClick={handlePress}>Load</button>
     </div>
   );
 };
