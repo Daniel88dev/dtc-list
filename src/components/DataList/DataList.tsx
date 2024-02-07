@@ -1,7 +1,11 @@
 import DataRow from "./DataRow.tsx";
 import { type dataFormat } from "../../assets/test.tsx";
 
-const DataList = ({ data }: { data: dataFormat[] }) => {
+export type DataListProps = {
+  data: dataFormat[];
+};
+
+const DataList: React.FC<DataListProps> = ({ data }) => {
   return (
     <table className="w-full border-none border-collapse">
       <thead>
