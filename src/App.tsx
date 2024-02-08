@@ -12,15 +12,12 @@ function App() {
   const filterData = useCallback((text: string): void => {
     const filteredData = test.filter((dataItem) => dataItem.dtc.includes(text));
     const isDataFound = filteredData.length > 0;
-    console.log(filteredData);
     if (isDataFound) {
       setLoadedData(filteredData);
     }
 
     setIsDataLoaded(isDataFound);
   }, []);
-
-  console.log(loadedData);
 
   return (
     <>

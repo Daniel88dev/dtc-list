@@ -65027,14 +65027,6 @@ export const test: dataFormat[] = [
     detail: "No Sub Type Information",
   },
   {
-    dtc: "C162E",
-    description: "IVSS SW Execution Time Failure",
-    type: "Chassis",
-    system: "Communication line, ECU",
-    item: "",
-    detail: "",
-  },
-  {
     dtc: "C162E04",
     description: "IVSS SW Execution Time Failure",
     type: "Chassis",
@@ -99002,5 +98994,3 @@ export const test: dataFormat[] = [
       "This sub type is used for failures where the base DTC text string provides the complete description of the failure itself (no Category and no Sub Type information used, e.g. emissions-related DTC (012700 hex): P0127 Intake Air Temperature Too High).",
   },
 ];
-
-console.log(test[1]);
