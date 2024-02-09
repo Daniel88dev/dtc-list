@@ -43,7 +43,7 @@ const SearchBar = ({
         onChange={handleTextChange}
       />
       <button
-        className="w-20 h-10 rounded-lg text-center bg-indigo-600 text-white ml-4 hover:bg-indigo-400"
+        className="w-20 h-10 rounded-lg text-center bg-indigo-600 text-white ml-4 hover:bg-indigo-400 mr-8"
         onClick={handlePress}
       >
         Load
