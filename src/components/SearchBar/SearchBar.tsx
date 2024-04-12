@@ -14,7 +14,8 @@ const SearchBar = ({
   };
 
   const handlePress = useCallback(() => {
-    onPress(searchText);
+    const upper = searchText.toUpperCase();
+    onPress(upper);
   }, [onPress, searchText]);
 
   useEffect(() => {
